@@ -1,1 +1,1 @@
-# Praktikum Informatik 2
+# PraktikumInformatik2
