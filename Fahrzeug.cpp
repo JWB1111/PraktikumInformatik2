@@ -7,13 +7,12 @@
 
 #include "Fahrzeug.hpp"
 #include "global.hpp"
-
+#define Simu Simulationsobjekt
 
 //Globale Variablen
 double dGlobaleZeit = 0.0;
 
-// Initialisierung der statischen Klassenvariable außerhalb der Klasse
-int Fahrzeug::p_iMaxID = 1;
+
 //double Fahrzeug::p_dZeit = 0;
 //double Fahrzeug::p_dMaxGeschwindigkeit = 40;
 
@@ -36,8 +35,8 @@ Fahrzeug::Fahrzeug(std::string name, double MaxGeschwindigkeit, int iID, double 
 
 // Funktion zum Anzeigen der Informationen über das Fahrzeug
 void Fahrzeug::vAusgeben(std::ostream& os) const{ // @suppress("Member declaration not found")
-    os << std::setw(15) << std::left << p_iID << std::setw(15) << std::left << p_sName << std::setw(15) << std::right << dGeschwindigkeit() << " km/h" << std::setw(20) << std::right << std::fixed << std::setprecision(6) << (p_dGesamtStrecke / 10) << " km ";
-}
+    Simu::vAusgeben(os);
+    os << std::setw(15) << std::right << dGeschwindigkeit() << " km/h" << std::setw(20) << std::right << std::fixed << std::setprecision(6) << (p_dGesamtStrecke / 10) << " km ";}
 
 
 void Fahrzeug::vKopf() {
@@ -45,6 +44,7 @@ void Fahrzeug::vKopf() {
 }
 
 void Fahrzeug::vSimulieren() {
+	Simu::vSimulieren();
     // Aktuelle Zeit in Sekunden seit dem Programmstart
     double dAktuelleZeit = dGlobaleZeit;
 
@@ -76,9 +76,6 @@ std::string Fahrzeug::getName() const
     return p_sName;
 }
 
-Fahrzeug::~Fahrzeug() {
-    std::cout << "Fahrzeug " << p_sName << " geloescht!" << std::endl;
-}
 
 double Fahrzeug::dGeschwindigkeit () const
 {return 1;}

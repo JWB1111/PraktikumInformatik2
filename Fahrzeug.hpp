@@ -8,28 +8,16 @@
 #ifndef FAHRZEUG_HPP
 #define FAHRZEUG_HPP
 
-#include <string>
-#include <iostream>
-#include <stdio.h>
-#include <iomanip>
-#include <ctime>
-#include <chrono>
-#include <thread>
-#include <memory>
-#include <vector>
-#include <math.h>
+#include "Simulationsobjekt.hpp"
 
 
 
-class Fahrzeug {
+
+class Fahrzeug : public Simulationsobjekt {
 protected:
-    static int p_iMaxID;
-    int p_iID = 0;
-    std::string p_sName;
     double p_dMaxGeschwindigkeit = 0;
     double p_dGesamtStrecke = 0;
     double p_dGesamtZeit = 0; //gesamte Fahrzeit des Objektes
-    double p_dZeit = 0; //Zeit, zu der das Fahrzeug zuletzt simuliert wurde
     double p_dGefahreneStrecke = 0;
 
 
@@ -51,8 +39,6 @@ public:
 
 //    virtual void vAusgeben() const;
 
-//    // Member-Funktion zum Anzeigen der Informationen
-//    virtual void vAufgabe1();
 
     // Simulationsfunktion
     virtual void vSimulieren();
@@ -72,6 +58,8 @@ public:
     virtual double dGeschwindigkeit () const;
 
     virtual void vAusgeben(std::ostream& os) const;
+
+    virtual ~Fahrzeug()= default;
 
     bool operator<(const Fahrzeug& other) const {
             return this->getGefahreneStrecke() < other.getGefahreneStrecke();

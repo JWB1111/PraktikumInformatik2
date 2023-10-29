@@ -16,7 +16,6 @@
 
 class Fahrrad : public Fahrzeug {
 private:
-    int p_iGaenge = 21;
 
 public:
     Fahrrad() = default;
@@ -27,6 +26,7 @@ public:
 
     double dGeschwindigkeit() const override;
 
+    ~Fahrrad() = default;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fahrrad& Fahrrad);
