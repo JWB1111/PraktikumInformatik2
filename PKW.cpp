@@ -14,7 +14,9 @@ p_dVerbrauch(dVerbrauch),
 p_dTankvolumen(dTankvolumen),
 p_dTankinhalt(dTankvolumen / 2)
 {}
-PKW::PKW(std::string name, double MaxGeschwindigkeit, double dVerbrauch, double dTankinhalt): Fahrzeug (name, MaxGeschwindigkeit) {}
+PKW::PKW
+(std::string name, double MaxGeschwindigkeit, double dVerbrauch, double dTankinhalt)
+: Fahrzeug (name, MaxGeschwindigkeit) {}
 
 
 

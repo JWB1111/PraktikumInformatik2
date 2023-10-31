@@ -21,23 +21,33 @@
 
 class Simulationsobjekt {
 public:
-	static int p_iMaxID = 0;
-	int p_iID = 0;
+	static int p_iMaxID;
+	int p_iID;
     std::string p_sName;
-    double p_dZeit = 0; //Zeit, zu der das Fahrzeug zuletzt simuliert wurde
+    double p_dZeit; //Zeit, zu der das Fahrzeug zuletzt simuliert wurde
+    // Verbieten des Copy-Konstruktors
+     Simulationsobjekt(const Simulationsobjekt&) = delete;
+
 
     virtual void vAusgeben(std::ostream& os) const;
     virtual void vSimulieren();
 
 
     virtual void vEinlesen(){};
-	virtual Simulationsobjekt()= default;
 
-	std::ostream& operator<<(std::ostream& os, const Simulationsobjekt& simulationsobjekt);
+    Simulationsobjekt() : p_iID(p_iMaxID++), p_sName(""), p_dZeit(0.0) {}
+
+    // Konstruktor mit Parameter für den Namen
+    Simulationsobjekt(std::string name) : p_iID(p_iMaxID++), p_sName(name), p_dZeit(0.0) {}
+
 
 	virtual ~Simulationsobjekt();
 
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Simulationsobjekt& simulationsobjekt);
+
+
 
 #endif /* SIMULATIONSOBJEKT_HPP_ */

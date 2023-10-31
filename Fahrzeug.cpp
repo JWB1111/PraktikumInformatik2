@@ -6,6 +6,7 @@
 //
 
 #include "Fahrzeug.hpp"
+#include "Simulationsobjekt.hpp"
 #include "global.hpp"
 #define Simu Simulationsobjekt
 
@@ -15,23 +16,12 @@ double dGlobaleZeit = 0.0;
 
 //double Fahrzeug::p_dZeit = 0;
 //double Fahrzeug::p_dMaxGeschwindigkeit = 40;
+Fahrzeug::Fahrzeug(std::string name) : Simulationsobjekt(name), p_dMaxGeschwindigkeit(0), p_dGesamtStrecke(0), p_dGesamtZeit(0), p_dGefahreneStrecke(0) {}
 
-// Konstruktor mit Parameter für den Namen und Initialisierung der ID
-Fahrzeug::Fahrzeug(std::string name) : p_iID(p_iMaxID++), p_sName(name), p_dZeit(p_dZeit=0), p_dMaxGeschwindigkeit(p_dMaxGeschwindigkeit=0) {}
+Fahrzeug::Fahrzeug(std::string name, double maxGeschwindigkeit) : Simulationsobjekt(name), p_dMaxGeschwindigkeit(maxGeschwindigkeit), p_dGesamtStrecke(0), p_dGesamtZeit(0), p_dGefahreneStrecke(0) {}
 
-// Default-Konstruktor: Initialisiert den Namen mit einem leeren String und vergibt eine ID
-Fahrzeug::Fahrzeug() : p_iID(p_iMaxID++), p_sName(""),p_dZeit(0.0), p_dMaxGeschwindigkeit(0), p_dGesamtStrecke(0.0), p_dGesamtZeit(0.0) {}
-
-
-// KOnstruktor der Auto-Namen und Vmax in Beziehung stellt
-Fahrzeug::Fahrzeug(std::string name, double p_dMaxGeschwindigkeit)
-: p_sName(name), p_dMaxGeschwindigkeit(p_dMaxGeschwindigkeit), p_iID(p_iMaxID++), p_dGesamtStrecke(0.0), p_dZeit(0.0), p_dGesamtZeit(0.0){}
-
-//Konstruktor der die Ausgabefunktion in TAbellenform ermöglicht
-Fahrzeug::Fahrzeug(std::string name, double MaxGeschwindigkeit, int iID, double GesamtStrecke)
-: p_sName(name), p_dMaxGeschwindigkeit(MaxGeschwindigkeit), p_iID(p_iMaxID++), p_dGesamtStrecke(GesamtStrecke), p_dZeit(0.0), p_dGesamtZeit(0.0){}
-
-
+Fahrzeug::Fahrzeug(std::string name, double maxGeschwindigkeit, int id, double gesamtStrecke)
+    : Simulationsobjekt(name), p_dMaxGeschwindigkeit(maxGeschwindigkeit), p_dGesamtStrecke(gesamtStrecke), p_dGesamtZeit(0), p_dGefahreneStrecke(0) {}
 
 // Funktion zum Anzeigen der Informationen über das Fahrzeug
 void Fahrzeug::vAusgeben(std::ostream& os) const{ // @suppress("Member declaration not found")
@@ -67,6 +57,7 @@ std::ostream& operator<<(std::ostream& os, const Fahrzeug& fahrzeug) {
     fahrzeug.vAusgeben(os);
     return os;
 }
+
 
 
 

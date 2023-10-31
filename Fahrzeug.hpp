@@ -14,21 +14,18 @@
 
 
 class Fahrzeug : public Simulationsobjekt {
-protected:
+public:
     double p_dMaxGeschwindigkeit = 0;
     double p_dGesamtStrecke = 0;
     double p_dGesamtZeit = 0; //gesamte Fahrzeit des Objektes
     double p_dGefahreneStrecke = 0;
 
-
-
-public:
     // Konstruktoren
     Fahrzeug(std::string name);
     Fahrzeug(std::string name, double MaxGeschwindigkeit);
     Fahrzeug(std::string name, double MaxGeschwindigkeit, int iID, double dGesamtStrecke);
     Fahrzeug();
-    virtual ~Fahrzeug();
+    virtual ~Fahrzeug()= default;
 
     double p_dTankinhalt = 0;
 
@@ -59,7 +56,7 @@ public:
 
     virtual void vAusgeben(std::ostream& os) const;
 
-    virtual ~Fahrzeug()= default;
+
 
     bool operator<(const Fahrzeug& other) const {
             return this->getGefahreneStrecke() < other.getGefahreneStrecke();

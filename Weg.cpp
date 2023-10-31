@@ -7,12 +7,5 @@
 
 #include "Weg.hpp"
 
-Weg::Weg() {
-	// TODO Auto-generated constructor stub
 
-}
-
-Weg::~Weg() {
-	// TODO Auto-generated destructor stub
-}
 

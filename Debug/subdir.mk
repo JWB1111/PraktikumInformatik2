@@ -7,6 +7,8 @@ CPP_SRCS += \
 ../Fahrrad.cpp \
 ../Fahrzeug.cpp \
 ../PKW.cpp \
+../Simulationsobjekt.cpp \
+../Weg.cpp \
 ../global.cpp \
 ../main.cpp 
 
@@ -14,6 +16,8 @@ CPP_DEPS += \
 ./Fahrrad.d \
 ./Fahrzeug.d \
 ./PKW.d \
+./Simulationsobjekt.d \
+./Weg.d \
 ./global.d \
 ./main.d 
 
@@ -21,6 +25,8 @@ OBJS += \
 ./Fahrrad.o \
 ./Fahrzeug.o \
 ./PKW.o \
+./Simulationsobjekt.o \
+./Weg.o \
 ./global.o \
 ./main.o 
 
@@ -29,7 +35,7 @@ OBJS += \
 %.o: ../%.cpp subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -37,7 +43,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./Fahrrad.d ./Fahrrad.o ./Fahrzeug.d ./Fahrzeug.o ./PKW.d ./PKW.o ./global.d ./global.o ./main.d ./main.o
+	-$(RM) ./Fahrrad.d ./Fahrrad.o ./Fahrzeug.d ./Fahrzeug.o ./PKW.d ./PKW.o ./Simulationsobjekt.d ./Simulationsobjekt.o ./Weg.d ./Weg.o ./global.d ./global.o ./main.d ./main.o
 
 .PHONY: clean--2e-
 

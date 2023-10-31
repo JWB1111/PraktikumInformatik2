@@ -8,10 +8,6 @@
 #include "Simulationsobjekt.hpp"
 #include <stdio.h>
 
-Simulationsobjekt::Simulationsobjekt() {
-	// TODO Auto-generated constructor stub
-
-}
 
 Simulationsobjekt::~Simulationsobjekt() {
 	  std::cout << "Fahrzeug " << p_sName << " geloescht!" << std::endl;
@@ -30,3 +26,5 @@ std::ostream& operator<<(std::ostream& os, const Simulationsobjekt& simu) {
 
 // Initialisierung der statischen Klassenvariable außerhalb der Klasse
 int Simulationsobjekt::p_iMaxID = 1;
+
+void Simulationsobjekt::vSimulieren(){}

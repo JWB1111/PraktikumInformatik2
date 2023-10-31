@@ -1,5 +1,8 @@
-Fahrzeug.o: ../Fahrzeug.cpp ../Fahrzeug.hpp ../global.hpp
+Fahrzeug.o: ../Fahrzeug.cpp ../Fahrzeug.hpp ../Simulationsobjekt.hpp \
+  ../global.hpp
 
 ../Fahrzeug.hpp:
+
+../Simulationsobjekt.hpp:
 
 ../global.hpp:
