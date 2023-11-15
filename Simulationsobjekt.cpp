@@ -28,3 +28,7 @@ std::ostream& operator<<(std::ostream& os, const Simulationsobjekt& simu) {
 int Simulationsobjekt::p_iMaxID = 1;
 
 void Simulationsobjekt::vSimulieren(){}
+
+bool Simulationsobjekt::operator==(const Simulationsobjekt& simu) const{
+	return (p_iID == simu.p_iID);
+}

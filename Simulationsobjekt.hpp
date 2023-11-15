@@ -44,6 +44,8 @@ public:
 	virtual ~Simulationsobjekt();
 
 
+	bool operator==(const Simulationsobjekt& simu) const;
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Simulationsobjekt& simulationsobjekt);

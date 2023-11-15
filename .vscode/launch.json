@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/julius/eclipse-workspace/Aufgabenblock_2",
+      "program": "/Users/julius/eclipse-workspace/Aufgabenblock_2/build/Debug/outDebug"
+    }
+  ]
+}
